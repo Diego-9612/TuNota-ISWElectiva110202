@@ -21,4 +21,5 @@ from AppTuNota import urls as AppTuNota_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/curso/', include(AppTuNota_urls))
+    
 ]
