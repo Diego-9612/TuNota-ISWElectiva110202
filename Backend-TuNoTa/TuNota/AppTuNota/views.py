@@ -18,7 +18,6 @@ class CursoApiView(APIView):
         if serializador.is_valid():
             serializador.save()
             return Response(serializador.data, status=status.HTTP_201_CREATED)
-<<<<<<< HEAD
         
         return Response(serializador.data, status=status.HTTP_400_BAD_REQUEST)
     
@@ -43,7 +42,6 @@ class CursoApiView(APIView):
             return Response({"message": "Curso eliminado exitosamente."}, status=status.HTTP_204_NO_CONTENT)
         except Curso.DoesNotExist:
             return Response({"error": "Curso no encontrado."}, status=status.HTTP_404_NOT_FOUND)
-=======
         return Response(serializador.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Vista para Examen 
@@ -59,4 +57,3 @@ class ExamenApiView(APIView):
             serializador.save()
             return Response(serializador.data, status=status.HTTP_201_CREATED)
         return Response(serializador.errors, status=status.HTTP_400_BAD_REQUEST)
->>>>>>> main
