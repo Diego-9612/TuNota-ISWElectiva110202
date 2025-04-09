@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from AppTuNota.models import Curso, Examen
-from AppTuNota.serializers import CursoSerializer, ExamenSerializer  # Usa los nombres correctos
+from AppTuNota.serializers import CursoSerializer, ExamenSerializer 
 
 # Vista para Curso 
 class CursoApiView(APIView):
@@ -23,7 +23,7 @@ class CursoApiView(APIView):
     
     def get(self, request, *args, **kwargs):
         lista_cursos = Curso.objects.all()
-        serializador = curso_serializer(lista_cursos, many=True)
+        serializador = CursoSerializer(lista_cursos, many=True)
         return Response(serializador.data, status=status.HTTP_200_OK)
     
     def put(self, request, pkid):
