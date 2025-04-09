@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from AppTuNota import urls as AppTuNota_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('api/curso/', include(AppTuNota_urls))
     
+=======
+    path('api/curso/', include('AppTuNota.urls')),
+>>>>>>> main
 ]

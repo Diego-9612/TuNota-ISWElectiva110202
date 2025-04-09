@@ -2,21 +2,23 @@ import json
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status,permissions
-from AppTuNota.models import Curso
-from .serializers import curso_serializer
+from rest_framework import status, permissions
+from AppTuNota.models import Curso, Examen
+from AppTuNota.serializers import CursoSerializer, ExamenSerializer  # Usa los nombres correctos
 
+# Vista para Curso 
 class CursoApiView(APIView):
     def post(self, request, *args, **kwargs):
-        data={
-            'nombre':request.data.get('nombre'),
+        data = {
+            'nombre': request.data.get('nombre'),
             'descripcion': request.data.get('descripcion'),
             'numHoras': request.data.get('numHoras'),
         }
-        serializador = curso_serializer(data = data)
+        serializador = CursoSerializer(data=data)
         if serializador.is_valid():
             serializador.save()
             return Response(serializador.data, status=status.HTTP_201_CREATED)
+<<<<<<< HEAD
         
         return Response(serializador.data, status=status.HTTP_400_BAD_REQUEST)
     
@@ -41,3 +43,20 @@ class CursoApiView(APIView):
             return Response({"message": "Curso eliminado exitosamente."}, status=status.HTTP_204_NO_CONTENT)
         except Curso.DoesNotExist:
             return Response({"error": "Curso no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+=======
+        return Response(serializador.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# Vista para Examen 
+class ExamenApiView(APIView):
+    def post(self, request, *args, **kwargs):
+        data = {
+            'tipo_examen': request.data.get('tipo_examen'),
+            'fecha': request.data.get('fecha'),
+            'curso': request.data.get('curso')  # debe ser el ID del curso
+        }
+        serializador = ExamenSerializer(data=data)
+        if serializador.is_valid():
+            serializador.save()
+            return Response(serializador.data, status=status.HTTP_201_CREATED)
+        return Response(serializador.errors, status=status.HTTP_400_BAD_REQUEST)
+>>>>>>> main
