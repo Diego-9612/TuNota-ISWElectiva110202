@@ -19,10 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    path('api/curso/', include(AppTuNota_urls))
-    
-=======
     path('api/curso/', include('AppTuNota.urls')),
->>>>>>> main
 ]

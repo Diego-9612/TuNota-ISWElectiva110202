@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User  #  modelo si es que usaremos el User como usuarios hasta mientras
 
 # Modelo curso
 class Curso(models.Model):
@@ -17,3 +18,12 @@ class Examen(models.Model):
 
     def __str__(self):
         return f"{self.tipo_examen} - {self.curso.nombre}"
+
+# Modelo:nota
+class Nota(models.Model):
+    calificacion = models.FloatField()
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    examen = models.ForeignKey(Examen, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.usuario.username} - {self.examen.tipo_examen} : {self.calificacion}"
