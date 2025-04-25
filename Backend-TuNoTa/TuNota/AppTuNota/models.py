@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User  #  modelo si es que usaremos el User como usuarios hasta mientras
+from django.contrib.auth.models import User 
 
 # Modelo curso
 class Curso(models.Model):
