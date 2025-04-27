@@ -6,7 +6,7 @@ function CreateCourses({ onAddCurso }) {
     const [formData, setFormData] = useState({
         nombre: "",
         descripcion: "",
-        numHoras: "",
+        numero_horas: "",
     });
 
     const [loading, setLoading] = useState(false);
@@ -25,9 +25,9 @@ function CreateCourses({ onAddCurso }) {
             errors.descripcion = "La descripción debe tener al menos 10 caracteres.";
         }
 
-        const horas = parseInt(formData.numHoras);
+        const horas = parseInt(formData.numero_horas);
         if (isNaN(horas) || horas <= 0) {
-            errors.numHoras = "El número de horas debe ser un número positivo.";
+            errors.numero_horas = "El número de horas debe ser un número positivo.";
         }
 
         setValidationErrors(errors);
@@ -40,6 +40,14 @@ function CreateCourses({ onAddCurso }) {
             ...prev,
             [name]: value,
         }));
+
+        // Limpiar errores cuando se modifica un campo
+        if (validationErrors[name]) {
+            setValidationErrors((prev) => ({
+                ...prev,
+                [name]: null,
+            }));
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -54,20 +62,13 @@ function CreateCourses({ onAddCurso }) {
         const dataToSend = {
             nombre: formData.nombre,
             descripcion: formData.descripcion,
-            numHoras: parseInt(formData.numHoras),
+            numero_horas: parseInt(formData.numero_horas),
         };
 
-        console.log("Datos enviados:", dataToSend);
-
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/curso/crear`, {
-                nombre: formData.nombre,
-                descripcion: formData.descripcion,
-                numHoras: parseInt(formData.numHoras),
-            });
-
+            await axios.post(`${import.meta.env.VITE_API_URL}/cursos/`, dataToSend);
             setSuccessMessage("Curso creado exitosamente.");
-            setFormData({ nombre: "", descripcion: "", numHoras: "" });
+            setFormData({ nombre: "", descripcion: "", numero_horas: "" });
             if (onAddCurso) onAddCurso(); // Callback opcional
         } catch (err) {
             console.error("Error al crear un nuevo curso:", err);
@@ -109,9 +110,7 @@ function CreateCourses({ onAddCurso }) {
                             className="w-full p-2 border rounded"
                         />
                         {validationErrors.descripcion && (
-                            <p className="text-sm text-red-500">
-                                {validationErrors.descripcion}
-                            </p>
+                            <p className="text-sm text-red-500">{validationErrors.descripcion}</p>
                         )}
                     </div>
 
@@ -119,13 +118,13 @@ function CreateCourses({ onAddCurso }) {
                         <label className="block font-medium">Número de Horas</label>
                         <input
                             type="number"
-                            name="numHoras"
-                            value={formData.numHoras}
+                            name="numero_horas"
+                            value={formData.numero_horas}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
                         />
-                        {validationErrors.numHoras && (
-                            <p className="text-sm text-red-500">{validationErrors.numHoras}</p>
+                        {validationErrors.numero_horas && (
+                            <p className="text-sm text-red-500">{validationErrors.numero_horas}</p>
                         )}
                     </div>
 
@@ -138,9 +137,7 @@ function CreateCourses({ onAddCurso }) {
                     </button>
 
                     {error && <p className="mt-2 text-red-600">{error}</p>}
-                    {successMessage && (
-                        <p className="mt-2 text-green-600">{successMessage}</p>
-                    )}
+                    {successMessage && <p className="mt-2 text-green-600">{successMessage}</p>}
                 </form>
             </main>
         </Layout>
