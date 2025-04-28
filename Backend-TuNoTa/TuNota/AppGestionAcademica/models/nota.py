@@ -16,5 +16,5 @@ class Nota(models.Model):
         db_table = 'notas'
 
     def __str__(self):
-        return f"Nota {self.valor} para {self.examen.titulo}"
+        return f"Nota {self.valor:.2f} para {self.examen.titulo}"
 

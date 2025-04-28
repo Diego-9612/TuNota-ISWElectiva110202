@@ -9,16 +9,16 @@ function Navbar() {
     const activeStyle = 'underline underline-offset-4';
 
     return (
-        <nav className="fixed top-0 z-10 flex items-center justify-between w-1/2 px-12 py-4 my-3 font-light border-2 rounded-full mx-96">
+        <nav className="fixed top-0 z-10 flex items-center justify-between w-1/2 px-12 py-2 mt-3 border-2 rounded-full mx-96">
             <ul className="flex justify-center items center">
-                <li className="text-xl font-bold">
+                <li className="text-xl font-bold text-orange-500">
                     <NavLink
                         to={'/'}
-                    >TUNOTA</NavLink>
+                    >HOME</NavLink>
                 </li>
             </ul>
             <ul className="flex items-center justify-center gap-5">
-                <li className="text-base">
+                <li className="text-base font-light">
                     <NavLink
                         to={'/my-account'}
                         className={({ isActive }) =>

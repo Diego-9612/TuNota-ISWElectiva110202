@@ -3,7 +3,7 @@ import { Home } from "../Home/Home";
 import { MyAccount } from "../MyAccount/MyAccount";
 import { CreateCourses } from "../CreateCourses/CreateCourses";
 import { AssignCourses } from "../AssignCourses/AssignCourses";
-import { EditDeleteCourses } from "../Edit_Delete_Courses/EditDeleteCourses";
+import { EditDeleteCourses } from "../EditDeleteCourses/EditDeleteCourses";
 import { Navbar } from "../../Components/Navbar/Navbar";
 
 

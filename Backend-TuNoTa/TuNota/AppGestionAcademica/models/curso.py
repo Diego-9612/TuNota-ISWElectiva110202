@@ -6,10 +6,10 @@ from django.core.exceptions import ValidationError
 
 def validateNumeroHoras(value):
     value
-    if value <= 10:
-        raise ValidationError('El número de horas debe ser mayor o igual a 10.')
     if value <= 0:
         raise ValidationError('El número de horas no puede ser negativo.')
+    if value < 10:
+        raise ValidationError('El número de horas debe ser mayor o igual a 10.')
 
 
 class Curso(models.Model):

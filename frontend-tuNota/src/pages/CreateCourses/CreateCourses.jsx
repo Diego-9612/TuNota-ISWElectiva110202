@@ -80,58 +80,60 @@ function CreateCourses({ onAddCurso }) {
 
     return (
         <Layout>
-            <main className="flex flex-col items-center justify-center w-3/4 p-6 mx-auto space-y-5 bg-white rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold">CREAR UN NUEVO CURSO</h2>
-                <p className="text-base font-medium">
-                    Ingresa la información necesaria para crear un nuevo curso.
+            <main className="flex flex-col items-center justify-center w-2/3 p-6 mx-auto space-y-4 text-orange-500 bg-white border rounded-lg shadow-md h-2/3">
+                <span className="flex flex-col items-center justify-center">
+                <h2 className="text-3xl font-black">CREA UN NUEVO CURSO</h2>
+                <p className="text-xl font-medium">
+                    Ingresa la información necesaria para crear un nuevo curso
                 </p>
+                </span>
 
-                <form onSubmit={handleSubmit} className="w-full space-y-4">
-                    <div>
-                        <label className="block font-medium">Nombre</label>
+                <form onSubmit={handleSubmit} className="flex flex-col w-full gap-6 bg-[#f3ead9] p-14 rounded-xl justify-center items-center">
+                    <div className="w-full">
                         <input
                             type="text"
                             name="nombre"
                             value={formData.nombre}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded"
+                            className="w-full p-3 px-10 rounded-xl placeholder:text-orange-300 focus:border-orange-500"
+                            placeholder="Ingresa el nombre del curso"
                         />
                         {validationErrors.nombre && (
-                            <p className="text-sm text-red-500">{validationErrors.nombre}</p>
+                            <p className="mt-2 text-sm text-center text-red-500">{validationErrors.nombre}</p>
                         )}
                     </div>
 
-                    <div>
-                        <label className="block font-medium">Descripción</label>
+                    <div className="w-full">
                         <textarea
                             name="descripcion"
                             value={formData.descripcion}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded"
+                            className="w-full p-3 px-10 rounded-xl placeholder:text-orange-300 focus:border-orange-500 "
+                            placeholder="Ingresa una descripcion del curso"
                         />
                         {validationErrors.descripcion && (
-                            <p className="text-sm text-red-500">{validationErrors.descripcion}</p>
+                            <p className="mt-2 text-sm text-center text-red-500">{validationErrors.descripcion}</p>
                         )}
                     </div>
 
-                    <div>
-                        <label className="block font-medium">Número de Horas</label>
+                    <div className="w-full">
                         <input
                             type="number"
                             name="numero_horas"
                             value={formData.numero_horas}
                             onChange={handleChange}
-                            className="w-full p-2 border rounded"
+                            className="w-full p-3 px-10 rounded-xl placeholder:text-orange-300 focus:border-orange-500"
+                            placeholder="Ingresa el numero de horas que dura el curso"
                         />
                         {validationErrors.numero_horas && (
-                            <p className="text-sm text-red-500">{validationErrors.numero_horas}</p>
+                            <p className="mt-2 text-sm text-center text-red-500">{validationErrors.numero_horas}</p>
                         )}
                     </div>
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+                        className="w-1/3 px-4 py-3 font-bold text-white duration-100 bg-orange-500 rounded-lg hover:bg-orange-700"
                     >
                         {loading ? "Creando..." : "Crear Curso"}
                     </button>

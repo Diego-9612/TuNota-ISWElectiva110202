@@ -1,7 +1,29 @@
-import { NavLink } from "react-router-dom";
 import { Layout } from "../../Components/Layout/Layout";
+import { SectionList } from "../../Components/SectionList/SectionList";
 import ImgTunota from "../../assets/img/tunota.png";
+
+
+
 function Home() {
+
+    const userManagementItems = [
+        { label: 'Crear Usuario', to: '/create-user' },
+        { label: 'Buscar Usuarios', to: '/search-users' },
+        { label: 'Editar Usuarios', to: '/edit-users' },
+    ];
+
+    const courseManagementItems = [
+        { label: 'Crear Curso', to: '/create-courses' },
+        { label: 'Asignar Curso', to: '/assign-courses' },
+        { label: 'Editar o Eliminar Curso', to: '/edit-delete-courses' },
+    ];
+
+    const reportManagementItems = [
+        { label: 'Generar Reporte', to: '/generate-report' },
+        { label: 'Editar Perfil', to: '/edit-profile' },
+        { label: 'Configuraciones', to: '/settings' },
+    ];
+
     return (
         <Layout>
             <main className="flex flex-col items-center justify-center w-3/4 space-y-5 bg-white">
@@ -13,31 +35,9 @@ function Home() {
                     />
                 </figure>
                 <section className="flex items-center justify-between w-full py-5 text-lg font-semibold">
-                    <div className="flex flex-col items-center justify-center w-1/3 gap-2 p-5">
-                        <p>Gestion de Usuarios</p>
-                        <ul className="flex flex-col w-full gap-3 px-3 py-5 text-base font-light border border-black rounded-xl">
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Crear Usuario</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Buscar Usuarios</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Editar Usuarios</NavLink></li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col items-center justify-center w-1/3 gap-2 p-5">
-                        <p>Gestion de Materias</p>
-                        <ul className="flex flex-col w-full gap-3 px-3 py-5 text-base font-light border border-black rounded-xl">
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink to={'/create-courses'}>Crear Curso</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink to={'/assign-courses'}>Asignar Curso</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink to={'edit-delete-courses'}>Editar/Eliminar Curso</NavLink></li>
-                        </ul>
-
-                    </div>
-                    <div className="flex flex-col items-center justify-center w-1/3 gap-2 p-5">
-                        <p>Gestion de Reportes</p>
-                        <ul className="flex flex-col w-full gap-3 px-3 py-5 text-base font-light border border-black rounded-xl">
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Generar Reporte</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Editar Perfil</NavLink></li>
-                            <li className="p-3 text-center rounded-xl bg-[#f3ead9]"><NavLink>Configuraciones</NavLink></li>
-                        </ul>
-                    </div>
+                    <SectionList title="Gestión de Usuarios" items={userManagementItems} />
+                    <SectionList title="Gestión de Materias" items={courseManagementItems} />
+                    <SectionList title="Gestión de Reportes" items={reportManagementItems} />
                 </section>
             </main>
         </Layout>
