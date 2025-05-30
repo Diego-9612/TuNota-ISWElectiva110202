@@ -32,15 +32,10 @@ const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         const data = await loginUser(email, password);
 
-    // Extraer solo el token sin "Bearer "
-        const cleanToken = data.token.startsWith("Bearer ")
-        ? data.token.split(" ")[1]
-        : data.token;
-
         setUser(data.user);
-        setToken(cleanToken);
+        setToken(data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("token", cleanToken);
+        localStorage.setItem("token", data.token);
 
         // Redirigir según rol
         if (data.user.roles && data.user.roles.length > 0) {
