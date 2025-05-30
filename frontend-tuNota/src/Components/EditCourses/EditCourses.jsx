@@ -40,7 +40,7 @@ function EditCourses({ course, onClose, onUpdateCourse }) {
         if (!validateForm()) return;
         
         try {
-            await axios.put(` ${import.meta.env.VITE_API_URL}/cursos/${course.id}/`, formData)
+            await axios.put(` ${import.meta.env.VITE_API_URL}/api/cursos/${course.id}/`, formData)
             onUpdateCourse(formData);
             onClose();
         } catch (err) {

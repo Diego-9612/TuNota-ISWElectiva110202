@@ -3,6 +3,7 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 from django.core.exceptions import ValidationError
 
+from users.models import User
 
 def validateNumeroHoras(value):
     value
@@ -18,9 +19,16 @@ class Curso(models.Model):
     numero_horas = models.IntegerField(validators=[validateNumeroHoras])
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    profesor = models.ForeignKey(
+        User, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True
+    )
 
     class Meta:
         db_table = 'cursos'
 
     def __str__(self):
         return self.nombre
+    

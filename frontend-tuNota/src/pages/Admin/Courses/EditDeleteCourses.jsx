@@ -14,7 +14,7 @@ function EditDeleteCourses() {
 
     const fetchCourses = () => {
         setLoading(true);
-        axios.get(`${import.meta.env.VITE_API_URL}/cursos/`)
+        axios.get(`${import.meta.env.VITE_API_URL}/api/cursos/`)
             .then((response) => {
                 setCourses(response.data);
                 setLoading(false);
@@ -44,7 +44,7 @@ function EditDeleteCourses() {
     const handleDeleteCourse = (id) => {
         if(!window.confirm("¿Estas Seguro de que deseas eliminar este curso?")) return;
 
-        axios.delete(`${import.meta.env.VITE_API_URL}/cursos/${id}/`)
+        axios.delete(`${import.meta.env.VITE_API_URL}/api/cursos/${id}/`)
         .then(() => {
             setCourses(courses.filter(course => course.id !== id));
         })

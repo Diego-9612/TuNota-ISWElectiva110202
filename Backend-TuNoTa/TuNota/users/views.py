@@ -186,3 +186,30 @@ def update_user(request, id_user):
             {"message": "No tienes permiso para editar este usuario", "statusCode": status.HTTP_403_FORBIDDEN},
             status=status.HTTP_403_FORBIDDEN
         )
+    
+#
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_profesores(request):
+    try:
+        # Filtrar usuarios con rol TEACHER usando la relación many-to-many
+        profesores = User.objects.filter(roles__id='TEACHER').distinct()
+        
+        profesores_data = []
+        for profesor in profesores:
+            profesores_data.append({
+                'id': profesor.id,
+                'name': profesor.name,
+                'lastname': profesor.lastname,
+                'email': profesor.email,
+                'phone': profesor.phone
+            })
+        
+        return Response(profesores_data, status=status.HTTP_200_OK)
+        
+    except Exception as e:
+        return Response(
+            {"message": "Error al obtener profesores", "error": str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )

@@ -37,7 +37,7 @@ export const createUser = async (userData, token) => {
 export const getAllUsers = async (token) => {
     try {
         const response = await axios.get(
-            `${API_URL}/users`, 
+            `${API_URL}/users/`, 
             getAuthHeaders(token)
         );
         return response.data;

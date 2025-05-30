@@ -7,21 +7,20 @@ import ImgTunota from "../../assets/img/tunota.png";
 function HomeTeacherPage() {
 
     const userManagementItems = [
-        { label: 'Crear Usuario', to: '/create-user' },
+        { label: 'xxxxxx', to: '/create-user' },
         { label: 'Buscar Usuarios', to: '/search-users' },
         { label: 'Editar Usuarios', to: '/edit-users' },
     ];
 
     const courseManagementItems = [
-        { label: 'Crear Curso', to: '/create-courses' },
-        { label: 'Asignar Curso', to: '/assign-courses' },
-        { label: 'Editar o Eliminar Curso', to: '/edit-delete-courses' },
+        { label: 'Ver Cursos', to: '/create-courses' },
+        { label: 'Agregar Examen', to: '/assign-courses' },
+        { label: 'Registrar Notas', to: '/edit-delete-courses' },
     ];
 
     const reportManagementItems = [
-        { label: 'Generar Reporte', to: '/generate-report' },
         { label: 'Editar Perfil', to: '/edit-profile' },
-        { label: 'Configuraciones', to: '/settings' },
+        { label: 'Cerrar Sesion', to: '/settings' },
     ];
 
     return (

@@ -66,7 +66,7 @@ function CreateCourses({ onAddCurso }) {
         };
 
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/cursos/`, dataToSend);
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/cursos/`, dataToSend);
             setSuccessMessage("Curso creado exitosamente.");
             setFormData({ nombre: "", descripcion: "", numero_horas: "" });
             if (onAddCurso) onAddCurso(); // Callback opcional
