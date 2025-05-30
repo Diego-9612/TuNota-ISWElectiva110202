@@ -4,7 +4,7 @@ import ImgTunota from "../../assets/img/tunota.png";
 
 
 
-function Home() {
+function HomeStudentPage() {
 
     const userManagementItems = [
         { label: 'Crear Usuario', to: '/create-user' },
@@ -44,4 +44,4 @@ function Home() {
     );
 }
 
-export { Home };
+export { HomeStudentPage };

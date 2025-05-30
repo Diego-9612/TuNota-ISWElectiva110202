@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Layout } from "../../Components/Layout/Layout";
-import { EditCourses } from "../../Components/EditCourses/EditCourses";
+import { Layout } from "../../../Components/Layout/Layout";
+import { EditCourses } from "../../../Components/EditCourses/EditCourses";
 
 function EditDeleteCourses() {
     const [courses, setCourses] = useState([]);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Layout } from "../../Components/Layout/Layout";
+import { Layout } from "../../../Components/Layout/Layout";
 
 function AssignCourses() {
     const [courses, setCourses] = useState([]);

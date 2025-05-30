@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Layout } from "../../Components/Layout/Layout";
+import { Layout } from "../../../Components/Layout/Layout";
 
 function CreateCourses({ onAddCurso }) {
     const [formData, setFormData] = useState({
