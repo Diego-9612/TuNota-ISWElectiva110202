@@ -15,12 +15,14 @@ import { HomeStudentPage } from "../Student/HomeStudentPage";
 import { HomeTeacherPage } from "../Teacher/HomeTeacherPage";
 import CreateUsersPage from "../Admin/Users/CreateUsersPage";
 import EditEliminatePage from "../Admin/Users/EditEliminatePage";
+import { ListCursosAsigPage } from "../Teacher/ListCursosAsigPage";
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <WelcomePage /> },
     { path: '/student', element: <HomeStudentPage /> },
     { path: '/teacher', element: <HomeTeacherPage /> },
+    { path: '/list-asig-courses', element: <ListCursosAsigPage/> },
 
     {
       path: '/admin', element: (

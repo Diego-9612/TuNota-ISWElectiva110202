@@ -13,7 +13,7 @@ function HomeTeacherPage() {
     ];
 
     const courseManagementItems = [
-        { label: 'Ver Cursos', to: '/create-courses' },
+        { label: 'Ver Cursos', to: '/list-asig-courses' },
         { label: 'Agregar Examen', to: '/assign-courses' },
         { label: 'Registrar Notas', to: '/edit-delete-courses' },
     ];
