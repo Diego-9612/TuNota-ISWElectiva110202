@@ -16,6 +16,8 @@ import { HomeTeacherPage } from "../Teacher/HomeTeacherPage";
 import CreateUsersPage from "../Admin/Users/CreateUsersPage";
 import EditEliminatePage from "../Admin/Users/EditEliminatePage";
 import { ListCursosAsigPage } from "../Teacher/ListCursosAsigPage";
+import { InscribirCursosPage } from "../Student/InscribirCursoPage";
+import { MisCursosInscritosPage } from "../Student/MisCursosInscritosPage";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -23,6 +25,8 @@ const AppRoutes = () => {
     { path: '/student', element: <HomeStudentPage /> },
     { path: '/teacher', element: <HomeTeacherPage /> },
     { path: '/list-asig-courses', element: <ListCursosAsigPage/> },
+    { path: '/ins-courses', element: <InscribirCursosPage/> },
+    { path: '/mis-courses-ins', element: <MisCursosInscritosPage/> },
 
     {
       path: '/admin', element: (

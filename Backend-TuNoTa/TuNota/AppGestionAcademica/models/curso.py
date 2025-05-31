@@ -26,6 +26,8 @@ class Curso(models.Model):
         blank=True
     )
 
+    
+
     class Meta:
         db_table = 'cursos'
 

@@ -13,9 +13,9 @@ function HomeStudentPage() {
     ];
 
     const courseManagementItems = [
-        { label: 'Crear Curso', to: '/create-courses' },
-        { label: 'Asignar Curso', to: '/assign-courses' },
-        { label: 'Editar o Eliminar Curso', to: '/edit-delete-courses' },
+        { label: 'Inscribir Curso', to: '/ins-courses' },
+        { label: 'Ver mis Curso', to: '/mis-courses-ins' },
+        { label: 'Ver mis Notas', to: '/edit-delete-courses' },
     ];
 
     const reportManagementItems = [
