@@ -3,6 +3,9 @@
 
 TuNota es una plataforma web completa para la gestión académica que permite a profesores administrar cursos y exámenes, y a estudiantes inscribirse en cursos y ver sus calificaciones.
 
+![Tunota](https://github.com/user-attachments/assets/f17470e3-9f7b-4fe5-8b3c-2d132a0d577f)
+
+
 ## Características principales
 🎓 Gestión de cursos y materias
 
